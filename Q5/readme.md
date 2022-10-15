@@ -43,3 +43,7 @@ Read(connection, ReadQuery) ;
 ```
 
 - After running project you can copy json data from console
+
+## Final Result
+
+![plot](./res_5.PNG)

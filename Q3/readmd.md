@@ -11,4 +11,8 @@
 ## Additional Information
 
 - My Project doesn't have a billing account. So map will show with warning "For Development purposes only". If you want to add your own billing account/ api key then Create a js api key and insert it in index.html ` src="https://maps.googleapis.com/maps/api/js?key=``<key>``&callback=initMap" `
-- All lat and lng can be found from `https://www.metro.net/riding/guide/how-ride-rail/`
+- All lat and lng can be found from `https://www.metro.net/riding/guide/how-ride-rail/` using Geocode in Google Excel
+
+## Final Result
+
+![plot](./res_3.PNG)

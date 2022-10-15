@@ -9,3 +9,7 @@
 ## Additional Information
 
 - As c compailer doesn't support operator overloading changed function name `makeFunc` to `makeFun` for multiple use by using different parameter
+
+## Final Result
+
+![plot](./res_1.PNG)
