@@ -56,30 +56,55 @@ public class CustomPostgreSqlDriver {
 	
 	public static void Read(Connection connection, String query) {
 		Serializer serializer = new Serializer() ;
+		
+		String tmp = "\t[" ;
 
 		try {
 			PreparedStatement statement = connection.prepareStatement(query) ;
 			ResultSet res = statement.executeQuery() ;
+			
+			
 
 			
 			while(res.next()) {
+				tmp += "\n\t{\n\t\t" ;
 				Map<String, String> mp = new HashMap<String, String>() ;
 				mp.put("user_id", res.getString("user_id")) ;
 				mp.put("name", res.getString("name")) ;
 				mp.put("age", res.getString("age")) ;
 				mp.put("phone", res.getString("phone")) ;
 				serializer.data.add(mp) ;
+				
+				tmp+="user_id : " ;
+				tmp+= res.getString("user_id") ;
+				tmp+=",\n\t\t" ;
+				
+				tmp+="name : \"" ;
+				tmp+= res.getString("name") ;
+				tmp+="\",\n\t\t" ;
+				
+				tmp+="age : \"" ;
+				tmp+= res.getString("age") ;
+				tmp+="\",\n\t\t" ;
+				
+				tmp+="phone : \"" ;
+				tmp+= res.getString("phone") ;
+				tmp+="\"\t" ;
+				
+				tmp += "\n\t}," ;
 			}
 			serializer.status_code = 200 ;
 			
 			
 		}
 		catch(Exception e) {
-			serializer.status_code = 200 ;
+			serializer.status_code = 500 ;
 			System.out.println(e);
 		}
 		
-		System.out.println("{ status_code : " + serializer.status_code + ", data :" + serializer.data.toString() + "}");
+		tmp+= "\n\t]";
+		
+		System.out.println("{\n\t status_code : " + serializer.status_code + ",\n\t data :" + tmp + "\n}");
 	}
 	
 	public static void main(String[] args) {
