@@ -4,6 +4,12 @@
 
 - Install java and Eclipse IDE
 - Open Project with with Eclipse
+- Install postgresql with default port 5432 . If port no for your pc is different then replace your port in
+
+```java
+  String connectionURL = "jdbc:postgresql://localhost:<port>/" + dbname;
+```
+
 - add `postgresql-42.5.0` jar file to classpath.
 - Relace `dbname` , `userName` and `password` according to Your PGAdmin
 - Run Java Application from `CustomPostgreSqlDriver.java` ;
@@ -35,3 +41,5 @@ Insert(connection,InsertQuery) ;
 String ReadQuery = "SELECT * FROM " + dbname ;
 Read(connection, ReadQuery) ;
 ```
+
+- After running project you can copy json data from console
